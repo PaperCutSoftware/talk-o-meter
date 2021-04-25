@@ -1,3 +1,3 @@
-# Talk Share for Google Meet
+# Talk-o-meter for Google Meet
 
 TODO

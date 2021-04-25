@@ -1,0 +1,17 @@
+{
+  "name": "talk-o-meter",
+  "version": "1.0.0",
+  "main": "content.js",
+  "repository": "git@bitbucket-papercut:papercutsoftware/talk-share.git",
+  "author": "Chris Dance <chris.dance@papercut.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint extension/*.js"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.126",
+    "eslint": "^7.13.0",
+    "eslint-config-arzyu-chrome": "^3.0.3"
+  }
+}
