@@ -1,18 +1,29 @@
 {
+    "manifest_version": 3,
     "name": "Talk-o-meter for Google Meet",
-    "version": "1.0",
     "description": "Don't hog the meeting! Talk-o-meter adds an indicator to Google Meet to track, rank and compare how much you speak in meetings.",
-    "content_scripts": [
-        {
-          "matches": ["https://meet.google.com/*"],
-          "js": ["content.js"],
-          "run_at": "document_idle"
-        }
-      ],
-    "web_accessible_resources": ["talk-o-meter.js"],
-    "icons": { 
-        "128": "talk-o-meter_icon128.png",
-        "48": "talk-o-meter_icon48.png" 
+    "version": "1.0",
+    "icons": {
+        "48": "talk-o-meter_icon48.png",
+        "128": "talk-o-meter_icon128.png"
     },
-    "manifest_version": 2
+    "action": {
+      "default_icon": { 
+        "48": "talk-o-meter_icon48.png",
+        "128": "talk-o-meter_icon128.png"
+      },
+      "default_title": "Talk-o-meter for Google Meet"
+    },
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["https://meet.google.com/*"],
+    "content_scripts": [
+      {
+        "matches": ["https://meet.google.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "web_accessible_resources": [{
+      "resources": ["talk-o-meter.js"],
+      "matches": ["https://meet.google.com/*"]
+    }]
 }

@@ -171,7 +171,6 @@ function updateLabels() {
     }
 
     // Update names in participants sidebar if it's visible
-    //const participantsList = document.querySelector('[role="list"] [aria-label="Participants"');
     const participantsList = document.querySelector('[aria-label="Participants"');
 
     if (participantsList && participantsList.offsetParent !== null) {

@@ -3,7 +3,10 @@
 // Author: Chris Dance ( https://github.com/codedance )
 
 // Inject our script into the Google Meet page
-const scriptInject = document.createElement('script');
+const s = document.createElement('script');
 
-scriptInject.src = chrome.extension.getURL('talk-o-meter.js');
-document.body.appendChild(scriptInject);
+s.src = chrome.runtime.getURL('talk-o-meter.js');
+s.onload = function () {
+    this.remove();
+};
+(document.head || document.documentElement).appendChild(s);
