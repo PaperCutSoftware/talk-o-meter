@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-use-before-define */
 
-// Copyright (c) 2020 PaperCut Software Int Pty Ltd
+// Copyright (c) 2020-21 PaperCut Software Int Pty Ltd
 // http://www.papercut.com/
 // Author: Chris Dance ( https://github.com/codedance )
 
@@ -25,23 +25,38 @@ scriptInject.innerHTML = `
   }
 
 ._tom-hover-text {
-    font-size: 0.8em;
+    font-size: 13px;
+    line-height: 1.3;
     visibility: hidden;
     width: 170px;
-    background-color: rgba(95, 99, 104, 0.87);
     color: #fff;
+    background: #434649;
     text-align: center;
-    border-radius: 2px;
-    padding: 5px 0;
+    border-radius: 3px;
+    text-shadow: none;
+    padding: 8px 15px;
     position: absolute;
     z-index: 3;
     opacity: 0;
     transition: opacity 0.3s;
-
-    margin-top: -4.8em;
-    margin-left: -50px;
+    margin-top: -5.2em;
+    margin-left: -30px;
   }
-  
+._tom-hover-text::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #434649;
+    border-top: 0;
+    border-left: 0;
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -5px;
+    bottom: -4px;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg) translate(0, 0);
+}
+
  ._tom-hover-zone:hover ._tom-hover-text {
     visibility: visible;
     opacity: 1;
@@ -155,11 +170,13 @@ function updateLabels() {
         }
     }
 
-    // Update names in sidebar if it's visible
-    const sidebar = document.querySelector('[role=tabpanel]');
+    // Update names in participants sidebar if it's visible
+    //const participantsList = document.querySelector('[role="list"] [aria-label="Participants"');
+    const participantsList = document.querySelector('[aria-label="Participants"');
 
-    if (sidebar && window.getComputedStyle(sidebar).display !== 'none') {
-        const allSpans = sidebar.querySelectorAll('span');
+    if (participantsList && participantsList.offsetParent !== null) {
+        // It's visible so do the work
+        const allSpans = participantsList.querySelectorAll('span');
 
         for (const potential of allSpans) {
             let name = potential.childNodes[0]?.nodeValue;
@@ -184,7 +201,6 @@ function updateLabels() {
 
         if (!hoverZone) {
             hoverZone = document.createElement('span');
-            hoverZone.innerHTML = 'This is a test';
             hoverZone.classList.add('_tom-hover-zone');
             label.appendChild(hoverZone);
         }
@@ -197,6 +213,8 @@ function updateLabels() {
             label.appendChild(span);
         }
 
+        // Hack: Turn off overflow on parent to ensure hover displays
+        span.parentElement.parentElement.style.overflow = 'visible';
 
         const deltaAvg = (100.0 * (1.0 * participant.ticks - avgTicks) / avgTicks).toFixed();
         const percent = (1.0 * participant.ticks / totalTicks * 100).toFixed();
