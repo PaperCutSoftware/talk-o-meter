@@ -11,6 +11,8 @@ Ever been told you speak too much in meetings? Or maybe you're as quiet as a mou
 1. Install the Extension
 1. In your next Google Meet conference, you'll see some talk statistics
 1. Try to keep your talk time close to the group average
+
+![Talk-o-meter for Google Meet](https://raw.githubusercontent.com/PaperCutSoftware/talk-o-meter/main/images/talk-o-meter-screenshot-1280x800.jpg)
  
 ## Origin
  
