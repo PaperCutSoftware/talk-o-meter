@@ -9,10 +9,16 @@
 
 console.log('Starting Talk-o-meter for Google Meet...');
 
+// A little hacky - work around new CSP Policy for now.
+const escapeHTMLPolicy = trustedTypes.createPolicy('forceInner', {
+    createHTML: (to_escape) => to_escape
+});
+
+
 // Inject in our own styles
 const scriptInject = document.createElement('style');
 
-scriptInject.innerHTML = `
+scriptInject.innerHTML = escapeHTMLPolicy.createHTML(`
 ._tom-status {
     font-size: 0.8em;
   }
@@ -61,7 +67,7 @@ scriptInject.innerHTML = `
     visibility: visible;
     opacity: 1;
   }
-`;
+`);
 document.body.append(scriptInject);
 
 // Inject in Font Awesome so we can use some of it's arrows/indicators
@@ -222,12 +228,12 @@ function updateLabels() {
 
         let html = `&nbsp;(${rank} ${percent}% ${arrow} ${deltaAvg}%)`;
 
-        span.innerHTML = html;
+        span.innerHTML = escapeHTMLPolicy.createHTML(html);
 
         // Add hover stats
         html = `<span class="_tom-hover-text">Rank ${rank} of ${ranked.length}<br />Talked for ${percent}% of the time<br />`;
         html += deltaAvg < 0 ? `${deltaAvg}% below the average` : `${deltaAvg}% above the average<br /></span>`;
-        hoverZone.innerHTML = html;
+        hoverZone.innerHTML = escapeHTMLPolicy.createHTML(html);
     }
 }
 

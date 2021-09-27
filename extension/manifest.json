@@ -14,7 +14,7 @@
       },
       "default_title": "Talk-o-meter for Google Meet"
     },
-    "permissions": ["activeTab", "scripting"],
+    "permissions": [],
     "host_permissions": ["https://meet.google.com/*"],
     "content_scripts": [
       {
