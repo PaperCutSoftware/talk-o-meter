@@ -7,7 +7,7 @@
 
 'use strict';
 
-console.log('Starting Talk-o-meter for Google Meet...');
+console.log('Starting Talk-o-meter for Google Meet (v2022-10-21)...');
 
 // A little hacky - work around new CSP Policy for now.
 const escapeHTMLPolicy = trustedTypes.createPolicy('forceInner', {
@@ -253,8 +253,8 @@ function getVolumeProxy(objKey) {
             if (!thisArg.tomVideoElem) {
                 for (const v of Object.values(thisArg)) {
                     if (v instanceof HTMLElement) {
-                        // Up 3
-                        thisArg.tomVideoElem = v.parentElement.parentElement.parentElement;
+                        // Up 4 (This is fragile... future bugs may well set here!)
+                        thisArg.tomVideoElem = v.parentElement.parentElement.parentElement.parentElement;
                         break;
                     }
                 }
@@ -263,6 +263,7 @@ function getVolumeProxy(objKey) {
             // Extract the name associated with the volume change. [data-self-name] tags the DIV containing
             // the username.  We'll also ignore virtual "Presentation" users.
             const label = thisArg.tomVideoElem.querySelector('[data-self-name]');
+
             const name = label?.childNodes[0].nodeValue;
 
             if (name && !name.startsWith('Presentation ')) {
