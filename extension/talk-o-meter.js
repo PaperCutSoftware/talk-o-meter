@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-use-before-define */
 
-// Copyright (c) 2020-21 PaperCut Software Int Pty Ltd
+// Copyright (c) 2020-2022 PaperCut Software Int Pty Ltd
 // http://www.papercut.com/
 // Author: Chris Dance ( https://github.com/codedance )
 

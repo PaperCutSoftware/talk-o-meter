@@ -1,4 +1,4 @@
-// Copyright (c) 2020 PaperCut Software Int Pty Ltd
+// Copyright (c) 2020-2022 PaperCut Software Int Pty Ltd
 // http://www.papercut.com/
 // Author: Chris Dance ( https://github.com/codedance )
 
