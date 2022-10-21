@@ -5,10 +5,12 @@
 ----
 
 Ever been told you speak too much in meetings? Or maybe you're as quiet as a mouse? 🙊  Whether your mouth’s too big or too small, Talk-o-meter is here to help. It's a simple concept - track and compare how much you and others talk in [Google Meet](https://meet.google.com/).🗣️
+
+   **[Install Talk-o-meter via Chrome Webstore](https://chrome.google.com/webstore/detail/talk-o-meter-for-google-m/gkaddeikpkbebjdkaebhehephipjhocg)**
  
 ## How to use:
 
-1. Install the Extension
+1. [Install](https://chrome.google.com/webstore/detail/talk-o-meter-for-google-m/gkaddeikpkbebjdkaebhehephipjhocg) the Extension
 1. In your next Google Meet conference, you'll see some talk statistics
 1. Try to keep your talk time close to the group average
 
