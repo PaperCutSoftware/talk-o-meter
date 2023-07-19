@@ -264,7 +264,7 @@ function getVolumeProxy(objKey) {
             // the username.  We'll also ignore virtual "Presentation" users.
             const label = thisArg.tomVideoElem.querySelector('[data-self-name]');
 
-            const name = label?.childNodes[0].nodeValue;
+            const name = label?.childNodes[1].childNodes[1].childNodes[0].nodeValue;
 
             if (name && !name.startsWith('Presentation ')) {
                 trackTalk(name);
