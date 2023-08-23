@@ -168,7 +168,7 @@ function updateLabels() {
 
     for (let i = 0; i < labels.length; i++) {
         const label = labels[i];
-        const name = label.childNodes[0].nodeValue;
+        const name = label.childNodes[1].childNodes[1].childNode[0].nodeValue;
         const participant = talkState.participants.get(name);
 
         if (participant) {
@@ -184,7 +184,7 @@ function updateLabels() {
         const allSpans = participantsList.querySelectorAll('span');
 
         for (const potential of allSpans) {
-            let name = potential.childNodes[0]?.nodeValue;
+            let name = potential.childNodes[1]?.?.childNodes[1]?.childNode[0].nodeValue;
 
             if (name) {
                 if (name.endsWith('(You)')) {
