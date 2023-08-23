@@ -184,7 +184,7 @@ function updateLabels() {
         const allSpans = participantsList.querySelectorAll('span');
 
         for (const potential of allSpans) {
-            let name = potential.childNodes[1]?.?.childNodes[1]?.childNode[0].nodeValue;
+            let name = potential.childNodes[1]?.childNodes[1]?.childNode[0].nodeValue;
 
             if (name) {
                 if (name.endsWith('(You)')) {
